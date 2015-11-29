@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
+<!-- 2015-10-12T14:58:59 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioSimples" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5948df73-7203-4fea-96e4-04284bcc93c3">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="tbProduto" class="br.com.dioceseOsasco.Paroquia.Model.TbProduto">
+		<fieldDescription><![CDATA[tbProduto]]></fieldDescription>
+	</field>
+	<field name="valorItem" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[valorItem]]></fieldDescription>
+	</field>
+	<field name="tbVenda" class="br.com.dioceseOsasco.Paroquia.Model.TbVenda">
+		<fieldDescription><![CDATA[tbVenda]]></fieldDescription>
+	</field>
+	<field name="quantidade" class="java.lang.Integer">
+		<fieldDescription><![CDATA[quantidade]]></fieldDescription>
+	</field>
+	<field name="idItem" class="java.math.BigInteger">
+		<fieldDescription><![CDATA[idItem]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="16" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="149" splitType="Stretch">
+			<staticText>
+				<reportElement x="122" y="109" width="310" height="30" uuid="50331c78-a3a2-4086-95cb-9e39b2b3532b"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório - Lucro por Evento]]></text>
+			</staticText>
+			<line>
+				<reportElement x="40" y="99" width="480" height="1" uuid="640e154d-c21d-48e8-887d-613ec26e9bd6"/>
+			</line>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="160" y="70" width="320" height="16" uuid="047e7039-a25f-442d-9670-a49df97efe01"/>
+				<textFieldExpression><![CDATA[DateFormat.getDateInstance(DateFormat.FULL).format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="40" width="359" height="20" uuid="4f619406-3a9d-4560-ad62-a94851a42146">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbVenda}.getTbEvento().getTbLocal().getTbLocalizacao().getNomeParoquia()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="17" width="359" height="20" uuid="90ed6fad-db3a-4c5f-adab-b2b6cbe78a3b"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbVenda}.getTbEvento().getTbLocal().getTbLocalizacao().getNomeDiocese()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="50" y="25" width="101" height="52" uuid="eb93839f-f82d-42e4-b2b2-f9f798e3bc5d"/>
+				<imageExpression><![CDATA["D:/IDE Java/Workspace/Workspace - Eclipse/SisIgreja - Controle de Venda/src/br/com/dioceseOsasco/Paroquia/View/img/Relatorio/Logo.PNG"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="108" splitType="Stretch">
+			<staticText>
+				<reportElement x="100" y="20" width="50" height="20" uuid="6bd779b8-4414-42ae-9351-800fbfba4bfd"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Evento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="60" width="40" height="20" uuid="9520ab0d-7b3e-4ac5-9036-815b1ad32ea0"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="80" width="40" height="20" uuid="66c5a45d-399e-4d4f-9916-8f45818ff331"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lucro:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="70" y="10" width="445" height="1" uuid="39cf57a9-25d8-48d0-be42-f65219737f81"/>
+			</line>
+			<textField>
+				<reportElement x="150" y="20" width="360" height="20" uuid="6fc15eea-90bb-43f9-8323-5f236c68a21c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbVenda}.getTbEvento().getNomeEvento()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="60" width="50" height="20" uuid="188df0bd-5702-409a-938a-40babe4c6e64"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tbVenda}.getTbEvento().getDataEvento()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="80" width="370" height="20" uuid="b67dbcb4-e6db-4a48-9c9a-043311ff231d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{valorItem}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="40" width="80" height="20" uuid="290c8db1-a62e-4045-a0d6-80676eaa69bb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comunidade:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="181" y="40" width="329" height="20" uuid="656374ed-7da5-40b7-bb3d-8703d6879a22"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbVenda}.getTbEvento().getTbLocal().getNomeComunidade()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="397" y="10" width="40" height="19" uuid="773ae8cb-1b38-42cc-b7bd-ba6c5d59d0a0"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Página:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="437" y="10" width="23" height="19" uuid="3453846b-a249-499b-ba68-881a7148981a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="10" width="20" height="19" uuid="2e1f4f75-14f6-4886-b967-7cc88f9e0011"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[de]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="491" y="10" width="24" height="20" uuid="ac986d84-3f61-46c3-8b2f-4a6cc49fae76"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="14" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

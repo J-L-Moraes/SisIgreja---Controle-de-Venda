@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
+<!-- 2015-10-12T16:52:35 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioDetalhado" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#EEEFF0"/>
+		</conditionalStyle>
+	</style>
+	<style name="Table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#CACED0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#D8D8D8"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="tableDataset" uuid="f13e6d36-5148-4ecc-bbe3-3035def80980">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="tbProduto" class="br.com.dioceseOsasco.Paroquia.Model.TbProduto">
+		<fieldDescription><![CDATA[tbProduto]]></fieldDescription>
+	</field>
+	<field name="valorItem" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[valorItem]]></fieldDescription>
+	</field>
+	<field name="tbVenda" class="br.com.dioceseOsasco.Paroquia.Model.TbVenda">
+		<fieldDescription><![CDATA[tbVenda]]></fieldDescription>
+	</field>
+	<field name="quantidade" class="java.lang.Integer">
+		<fieldDescription><![CDATA[quantidade]]></fieldDescription>
+	</field>
+	<field name="idItem" class="java.math.BigInteger">
+		<fieldDescription><![CDATA[idItem]]></fieldDescription>
+	</field>
+	<variable name="SomaValorTotal" class="java.lang.Double" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{valorItem}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0)]]></initialValueExpression>
+	</variable>
+	<group name="Gruppo1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+		<groupFooter>
+			<band>
+				<property name="local_mesure_unitheight" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{tbVenda}.getIdVenda()]]></groupExpression>
+		<groupHeader>
+			<band height="80">
+				<textField>
+					<reportElement x="120" y="7" width="428" height="20" uuid="c1bc7e1c-c52c-4873-a503-fc60c8ad33e4"/>
+					<textFieldExpression><![CDATA[$F{tbVenda}.getTbEvento().getNomeEvento()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="10" y="7" width="100" height="20" uuid="d0f02993-4ec5-40b4-9e01-3fc6f9b08e36"/>
+					<textElement textAlignment="Left">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nome do Evento:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="10" y="27" width="100" height="20" uuid="8817628d-0632-474b-8a94-3e9480f3538a"/>
+					<textElement textAlignment="Left">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Comunidade:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="120" y="27" width="428" height="20" uuid="48bd3178-f55d-4fa2-bd29-b31e60dd379b"/>
+					<textFieldExpression><![CDATA[$F{tbVenda}.getTbEvento().getTbLocal().getNomeComunidade()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="440" y="60" width="114" height="20" uuid="4c239451-0c9e-4e87-b641-18bc337b102f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Valor Total]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="340" y="60" width="100" height="20" uuid="fb1bcaa8-f002-428c-807c-4fae6b40f016"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Preço Unitário]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="100" y="60" width="130" height="20" uuid="6f840f6e-1eef-449f-aa71-f7973b658e86"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Produto]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="240" y="60" width="90" height="20" uuid="4a12611b-b986-4712-a236-7847262a7319"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Quantidade]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="60" width="100" height="20" uuid="33984b39-1116-4092-ad2a-54c918f7baa2"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Código da venda]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="50" width="553" height="1" uuid="730fdc01-9fd3-4ab5-8332-74b873c6acd4"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="33">
+				<textField>
+					<reportElement x="430" y="0" width="120" height="19" uuid="b747c3c4-4ad9-4190-8c42-83a22cf2b3d6"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["R$ " +$V{SomaValorTotal}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="350" y="0" width="80" height="23" uuid="be947ac9-2a69-475e-94b1-332d749a11ca"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Valor da venda:]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="23" width="555" height="1" uuid="ab27e048-ed2a-45c8-8d09-a14a67ab2385">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<columnHeader>
+		<band height="118">
+			<line>
+				<reportElement x="-1" y="114" width="556" height="1" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="146" y="87" width="310" height="25" uuid="e622555d-198b-4ccd-a4a1-c59c53304058">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório detalhado de venda]]></text>
+			</staticText>
+			<image>
+				<reportElement x="30" y="6" width="100" height="50" uuid="216d9b5a-2f23-4470-be8e-b9ce872b443c"/>
+				<imageExpression><![CDATA["D:/IDE Java/Workspace/Workspace - Eclipse/SisIgreja - Controle de Venda/src/br/com/dioceseOsasco/Paroquia/View/img/Relatorio/Logo.PNG"]]></imageExpression>
+			</image>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="146" y="50" width="320" height="16" uuid="51701c9b-d43c-4154-9089-8b2eb19286ab"/>
+				<textFieldExpression><![CDATA[DateFormat.getDateInstance(DateFormat.FULL).format(new Date())]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="45" y="80" width="480" height="1" uuid="a25d39b9-3bd6-48c7-b948-27adfedab54f"/>
+			</line>
+			<textField>
+				<reportElement x="150" y="29" width="359" height="20" uuid="57c8940d-f320-4288-9c68-7f552b3528ba">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbVenda}.getTbEvento().getTbLocal().getTbLocalizacao().getNomeParoquia()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="6" width="359" height="20" uuid="41759542-3810-486e-923f-d79413b60f00"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbVenda}.getTbEvento().getTbLocal().getTbLocalizacao().getNomeDiocese()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<textField>
+				<reportElement x="10" y="0" width="80" height="20" uuid="4c8ee6a9-43e9-4a3b-8bc4-bba2dc15fc94"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tbVenda}.getIdVenda()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="130" height="20" uuid="5530cac6-0fa0-4b0a-a567-2b59f1b9d742"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tbProduto}.getDescricao()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="90" height="20" uuid="97f1ad95-5774-4314-88a0-03e8c2a0abfe"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="0" width="100" height="20" uuid="ffa19184-5160-4573-a487-4e8ac00bf29e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tbProduto}.getPreco()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="0" width="114" height="20" uuid="817e7f84-1d2f-440c-b0f9-3e33fbc80762"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["R$ " +$F{valorItem}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="40">
+			<staticText>
+				<reportElement x="431" y="10" width="40" height="19" uuid="4695a855-3595-4277-b0b1-74a0cf8bcc1a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Página:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="471" y="10" width="23" height="19" uuid="453c694f-10b2-4c1d-8849-f904bd0e3009"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="499" y="10" width="20" height="19" uuid="990b7a38-c752-4179-bace-0c3607bda4f1"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[de]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="525" y="10" width="24" height="20" uuid="ecd2caf8-ab9e-4f1f-b9da-b075fd88a04c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+</jasperReport>

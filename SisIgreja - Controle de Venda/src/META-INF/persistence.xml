@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="SisIgreja" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>br.com.dioceseOsasco.Paroquia.Model.TbEvento</class>
+		<class>br.com.dioceseOsasco.Paroquia.Model.TbItem</class>
+		<class>br.com.dioceseOsasco.Paroquia.Model.TbLocal</class>
+		<class>br.com.dioceseOsasco.Paroquia.Model.TbLocalizacao</class>
+		<class>br.com.dioceseOsasco.Paroquia.Model.TbPermissao</class>
+		<class>br.com.dioceseOsasco.Paroquia.Model.TbProduto</class>
+		<class>br.com.dioceseOsasco.Paroquia.Model.TbUsuario</class>
+		<class>br.com.dioceseOsasco.Paroquia.Model.TbVenda</class>
+		
+		<properties>
+			<!-- Identificar Marcações -->
+			<property name="hibernate.archive.autodetection" value="class"/>
+			
+			<!--  Conexão com o Banco de Dados -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost/caixa"/>
+			<property name="hibernate.connection.user" value="root"/>
+			<property name="hibernate.conncetion.password" value="Metallica"/>
+			<!-- <property name="hibernate.hbm2ddl.auto" value="create"/> -->
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			
+			<!-- Configuração de Debug -->
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true"/>
+			<property name="use_sql_comments" value="true"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/caixa"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.password" value="Metallica"/>
+			
+		</properties>
+	</persistence-unit>
+</persistence>
