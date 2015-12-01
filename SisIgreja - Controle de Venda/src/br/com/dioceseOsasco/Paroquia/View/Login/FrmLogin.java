@@ -1,7 +1,6 @@
 package br.com.dioceseOsasco.Paroquia.View.Login;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
@@ -14,8 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-
-import org.pushingpixels.substance.api.SubstanceLookAndFeel;
 
 @SuppressWarnings("serial")
 public class FrmLogin extends JFrame {
@@ -31,33 +28,6 @@ public class FrmLogin extends JFrame {
 	JLabel lblEsquecerSenha;
 	JLabel lblConfig;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-
-				//Temas para a aplicação
-				
-				// Temas Brancos
-				// SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.NebulaSkin"); //Tema Gelo
-				// SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.BusinessBlackSteelSkin");
-
-				// SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.MarinerSkin");
-
-				//SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.OfficeBlack2007Skin");
-
-				SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.OfficeBlack2007Skin");
-				//JFrame.setDefaultLookAndFeelDecorated(true);   /* Permite alterar o LookAndFeel do Frame */
-				//JDialog.setDefaultLookAndFeelDecorated(true);    /* Permite alterar o tema da borda */  
-				
-				FrmLogin login = new FrmLogin();
-				login.setVisible(true);
-			}
-		});
-	}
 
 	/**
 	 * Método Construtor
